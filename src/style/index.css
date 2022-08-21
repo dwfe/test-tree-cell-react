@@ -1,0 +1,20 @@
+@import '~normalize.css';
+@import '~@do-while-for-each/font-jetbrains-mono';
+@import '~@do-while-for-each/font-barlow';
+@import './system.override.css';
+@import './variable.css';
+
+body {
+  font-family: var(--font-family-barlow);
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: normal;
+  font-style: normal;
+  color: var(--color);
+  background-color: var(--bg-color);
+}
+
+#root {
+  display: grid;
+  padding: 10px 10px;
+}
