@@ -1,0 +1,17 @@
+td, th {
+  border: 1px solid #E0E0E0;
+  padding: 5px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input {
+  width: 70px;
+}
+
+.renderCount {
+  color: darkblue;
+  font-family: var(--font-family-mono);
+}

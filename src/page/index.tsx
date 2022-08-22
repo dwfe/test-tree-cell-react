@@ -1,5 +1,5 @@
 
-export {ForClass} from './ForClass/ForClass'
+export {ForClass} from './ForClass'
 
 export {IndexPage} from './IndexPage'
 
