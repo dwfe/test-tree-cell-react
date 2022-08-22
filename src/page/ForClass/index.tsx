@@ -40,7 +40,7 @@ export class ForClass extends PureComponent<any, IState> {
         value = this.kindRef.current?.value;
         break;
     }
-    if (value)
+    if (value !== undefined)
       this.tomAndJerry[field] = value;
   }
 
