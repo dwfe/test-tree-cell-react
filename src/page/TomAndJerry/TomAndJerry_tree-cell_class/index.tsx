@@ -1,6 +1,6 @@
 import {cellState} from '@do-while-for-each/tree-cell-react';
 import {PureComponent, createRef, RefObject} from 'react'
-import {TomAndJerry} from '../../util';
+import {TomAndJerryTreeCell} from '../../../util';
 import style from './index.module.css';
 
 type IState = {
@@ -11,9 +11,9 @@ type IState = {
 
 let renderCount = 0;
 
-export class ForClass extends PureComponent<any, IState> {
+export class TomAndJerryTreeCellClassComponent extends PureComponent<any, IState> {
 
-  tomAndJerry = new TomAndJerry();
+  tomAndJerry = new TomAndJerryTreeCell();
 
   nameRef: RefObject<HTMLInputElement>;
   kindRef: RefObject<HTMLInputElement>;
@@ -52,6 +52,7 @@ export class ForClass extends PureComponent<any, IState> {
   render() {
     return (
       <div>
+        <h3>TomAndJerry class tree-cell</h3>
         <p>
           <span>renderCount: <b className={style.renderCount}>{++renderCount}</b></span>
         </p>

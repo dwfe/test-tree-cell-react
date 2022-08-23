@@ -5,7 +5,8 @@ export const IndexPage = () => {
   return (
     <div>
       <br/>
-      <Link href="/for-class">For Class</Link><br/><br/>
+      <Link href="/tom-and-jerry-class-tree-cell">TomAndJerry Class (tree-cell)</Link><br/><br/>
+      <Link href="/tom-and-jerry-mobx">TomAndJerry (mobx)</Link><br/><br/>
     </div>
   )
 }

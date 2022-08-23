@@ -1,6 +1,6 @@
 import {cell, makeObservable} from '@do-while-for-each/tree-cell';
 
-export class TomAndJerry {
+export class TomAndJerryTreeCell {
   name = 'Tom';
   kind = 'Cat';
 
@@ -15,4 +15,5 @@ export class TomAndJerry {
   get full() {
     return this.name + ' ' + this.kind;
   }
+
 }
