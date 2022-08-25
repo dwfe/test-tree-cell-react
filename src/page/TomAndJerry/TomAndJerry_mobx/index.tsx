@@ -3,10 +3,10 @@ import {useState, useRef} from 'react';
 import style from '../TomAndJerry_tree-cell_class/index.module.css';
 import {TomAndJerryMobx} from '../../../util';
 
-let renderCount = 0;
-
 export const TomAndJerryMobxFnComponent = observer(() => {
   const [tomAndJerry] = useState(() => new TomAndJerryMobx());
+  const [renderCount, setRenderCount] = useState(0);
+  setRenderCount(renderCount + 1);
   const nameRef = useRef<HTMLInputElement>(null);
   const kindRef = useRef<HTMLInputElement>(null);
 
@@ -38,7 +38,7 @@ export const TomAndJerryMobxFnComponent = observer(() => {
     <div>
       <h3>TomAndJerry MobX</h3>
       <p>
-        <span>renderCount: <b className={style.renderCount}>{++renderCount}</b></span>
+        <span>renderCount: <b className={style.renderCount}>{renderCount}</b></span>
       </p>
       <table>
         <tbody>

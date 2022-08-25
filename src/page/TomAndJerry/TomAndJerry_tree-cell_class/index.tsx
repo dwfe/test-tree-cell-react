@@ -9,20 +9,19 @@ type IState = {
   full: string;
 }
 
-let renderCount = 0;
-
 export class TomAndJerryTreeCellClassComponent extends PureComponent<any, IState> {
 
   tomAndJerry = new TomAndJerryTreeCell();
-
-  nameRef: RefObject<HTMLInputElement>;
-  kindRef: RefObject<HTMLInputElement>;
 
   state: IState = cellState(this, {
     name: () => this.tomAndJerry.name,
     kind: () => this.tomAndJerry.kind,
     full: () => this.tomAndJerry.full,
   });
+
+  nameRef: RefObject<HTMLInputElement>;
+  kindRef: RefObject<HTMLInputElement>;
+  renderCount = 0;
 
   constructor(props: any) {
     super(props);
@@ -52,9 +51,9 @@ export class TomAndJerryTreeCellClassComponent extends PureComponent<any, IState
   render() {
     return (
       <div>
-        <h3>TomAndJerry class tree-cell</h3>
+        <h3>TomAndJerry, React.PureComponent, tree-cell</h3>
         <p>
-          <span>renderCount: <b className={style.renderCount}>{++renderCount}</b></span>
+          <span>renderCount: <b className={style.renderCount}>{++this.renderCount}</b></span>
         </p>
         <table>
           <tbody>
