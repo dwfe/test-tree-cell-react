@@ -35,7 +35,7 @@ export class NoCellSomeDataClassComponent extends PureComponent<any, IState> {
         </p>
         <p>value: {this.state.value}</p>
         <div>
-          <input type="text" defaultValue={this.state.value} ref={this.valueRef}></input>&nbsp;
+          <input type="text" defaultValue={this.state.value} ref={this.valueRef}/>&nbsp;
           <button onClick={() => this.applyValue()}>apply</button>
         </div>
       </div>

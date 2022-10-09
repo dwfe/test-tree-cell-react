@@ -19,7 +19,7 @@
     "@do-while-for-each/font-jetbrains-mono": "1.x.x",
     "normalize.css": "8.0.1",
     "@do-while-for-each/tree-cell": "1.0.1",
-    "@do-while-for-each/tree-cell-react": "1.0.1",
+    "@do-while-for-each/tree-cell-react": "1.0.2",
     "mobx": "6.6.1",
     "mobx-react-lite": "3.4.0"
   },
