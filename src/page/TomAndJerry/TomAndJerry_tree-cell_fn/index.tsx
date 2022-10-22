@@ -1,32 +1,31 @@
-import {observer} from 'mobx-react-lite'
-import {useState, useRef} from 'react';
+import {useCellState} from '@do-while-for-each/tree-cell-react';
+import {useRef, useState} from 'react';
 import style from '../TomAndJerry_tree-cell_class/index.module.css';
-import {TomAndJerryMobx} from '../../../util';
+import {TomAndJerryTreeCell} from '../../../util';
 
 let renderCount = 0;
 
-export const TomAndJerryMobxFnComponent = observer(() => {
-  const [tomAndJerry] = useState(() => new TomAndJerryMobx());
+export function TomAndJerryTreeCellFunctionComponent() {
+  const [tomAndJerry] = useState<TomAndJerryTreeCell>(new TomAndJerryTreeCell());
+  const [name] = useCellState(() => tomAndJerry.name);
+  const [kind] = useCellState(() => tomAndJerry.kind);
+  const [full] = useCellState(() => tomAndJerry.full);
+
   const nameRef = useRef<HTMLInputElement>(null);
   const kindRef = useRef<HTMLInputElement>(null);
 
   const applyField = (field: 'name' | 'kind') => {
+    let value;
     switch (field) {
-      case 'name': {
-        const value = nameRef.current?.value;
-        if (value !== undefined) {
-          tomAndJerry.setName(value);
-        }
+      case 'name':
+        value = nameRef.current?.value;
         break;
-      }
-      case 'kind': {
-        const value = kindRef.current?.value;
-        if (value !== undefined) {
-          tomAndJerry.setKind(value);
-        }
+      case 'kind':
+        value = kindRef.current?.value;
         break;
-      }
     }
+    if (value !== undefined)
+      tomAndJerry[field] = value;
   }
 
   const applyAll = () => {
@@ -36,7 +35,7 @@ export const TomAndJerryMobxFnComponent = observer(() => {
 
   return (
     <div>
-      <h3>TomAndJerry MobX</h3>
+      <h3>TomAndJerry, React function component, tree-cell</h3>
       <p>
         <span>renderCount: <b className={style.renderCount}>{++renderCount}</b></span>
       </p>
@@ -45,23 +44,23 @@ export const TomAndJerryMobxFnComponent = observer(() => {
         <tr>
           <td>name</td>
           <td>
-            <input type="text" defaultValue={tomAndJerry.name} ref={nameRef}></input>&nbsp;
+            <input type="text" defaultValue={name} ref={nameRef}></input>&nbsp;
             <button onClick={() => applyField('name')}>apply</button>
           </td>
-          <td><b>{tomAndJerry.name}</b></td>
+          <td><b>{name}</b></td>
         </tr>
         <tr>
           <td>kind</td>
           <td>
-            <input type="text" defaultValue={tomAndJerry.kind} ref={kindRef}></input>&nbsp;
+            <input type="text" defaultValue={kind} ref={kindRef}></input>&nbsp;
             <button onClick={() => applyField('kind')}>apply</button>
           </td>
-          <td><b>{tomAndJerry.kind}</b></td>
+          <td><b>{kind}</b></td>
         </tr>
         <tr>
           <td>full</td>
           <td>&nbsp;</td>
-          <td><b>{tomAndJerry.full}</b></td>
+          <td><b>{full}</b></td>
         </tr>
         </tbody>
       </table>
@@ -70,4 +69,4 @@ export const TomAndJerryMobxFnComponent = observer(() => {
       </p>
     </div>
   );
-});
+}
